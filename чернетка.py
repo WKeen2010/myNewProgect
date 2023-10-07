@@ -2,65 +2,169 @@ from random import *
 
 координати = []
 збиті_кораблі = 0
+check = []
 
+def checker_x(a, b):
+    координати_x = []
+    if len(a) == 1:
+        координати.append(str(x-1) + str(y-1))
+        координати.append(str(x) + str(y-1))
+        координати.append(str(x+1) + str(y-1))
 
-def shot_x(x, збиті_кораблі_x, e):
-    a = True
-    x1 = x
-    while a == True:
-        x1 = x1 + e
-        if x1 < 11:
-            координати.append(str(x1) + str(y))
-            print(x1, " | ", y)
-            f = input("(промах, попав, вбив): ")
+        координати.append(str(x-1) + str(y))
+        координати.append(str(x+1) + str(y))
 
-            if f == "промах":
-                a = False
-                return збиті_кораблі_x
+        координати.append(str(x-1) + str(y+1))
+        координати.append(str(x) + str(y+1))
+        координати.append(str(x+1) + str(y+1))
 
-            elif f == "вбив":
-                збиті_кораблі_x += 1
-                пропуск = False
-                a = False
-                return збиті_кораблі_x
+    elif len(a) == 2 and b == 1:
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x + 2) + str(y - 1))
 
-            elif f == "попав":
-                збиті_кораблі_x += 1
-                пропуск = False
-                continue
-        else:
-            a = False
-            return збиті_кораблі_x
+        координати.append(str(x - 1) + str(y))
+        координати.append(str(x + 2) + str(y))
 
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x) + str(y + 1))
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x + 2) + str(y + 1))
 
-def shot_y(y, збиті_кораблі_y, e):
-    a = True
-    y1 = y
-    while a == True:
-        y1 = y1 + e
-        if y1 < 11:
-            координати.append(str(x) + str(y1))
-            print(x, " | ", y1)
-            f = input("(промах, попав, вбив): ")
+    elif len(a) == 2 and b == 2:
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x - 2) + str(y - 1))
 
-            if f == "промах":
-                a = False
-                return збиті_кораблі_y
+        координати.append(str(x + 1) + str(y))
+        координати.append(str(x - 2) + str(y))
 
-            elif f == "вбив":
-                збиті_кораблі_y += 1
-                пропуск = False
-                a = False
-                return збиті_кораблі_y
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x) + str(y + 1))
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x - 2) + str(y + 1))
 
-            elif f == "попав":
-                збиті_кораблі_y += 1
-                пропуск = False
-                continue
-        else:
-            a = False
-            return збиті_кораблі_y
+    elif len(a) == 3 and b == 1:
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x + 2) + str(y - 1))
+        координати.append(str(x + 3) + str(y - 1))
 
+        координати.append(str(x - 1) + str(y))
+        координати.append(str(x + 3) + str(y))
+
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x) + str(y + 1))
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x + 2) + str(y + 1))
+        координати.append(str(x + 3) + str(y + 1))
+
+    elif len(a) == 3 and b == 2:
+        координати.append(str(x - 2) + str(y - 1))
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x + 2) + str(y - 1))
+
+        координати.append(str(x - 2) + str(y))
+        координати.append(str(x + 2) + str(y))
+
+        координати.append(str(x - 2) + str(y + 1))
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x) + str(y + 1))
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x + 2) + str(y + 1))
+
+    elif len(a) == 3 and b == 3:
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x - 2) + str(y - 1))
+        координати.append(str(x - 3) + str(y - 1))
+
+        координати.append(str(x + 1) + str(y))
+        координати.append(str(x - 3) + str(y))
+
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x) + str(y + 1))
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x - 2) + str(y + 1))
+        координати.append(str(x - 3) + str(y + 1))
+
+    elif len(a) == 4 and b == 1:
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x + 2) + str(y - 1))
+        координати.append(str(x + 3) + str(y - 1))
+        координати.append(str(x + 4) + str(y - 1))
+
+        координати.append(str(x - 1) + str(y))
+        координати.append(str(x + 4) + str(y))
+
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x) + str(y + 1))
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x + 2) + str(y + 1))
+        координати.append(str(x + 3) + str(y + 1))
+        координати.append(str(x + 4) + str(y + 1))
+
+    elif len(a) == 4 and b == 2:
+        координати.append(str(x - 2) + str(y - 1))
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x + 2) + str(y - 1))
+        координати.append(str(x + 3) + str(y - 1))
+
+        координати.append(str(x - 2) + str(y))
+        координати.append(str(x + 3) + str(y))
+
+        координати.append(str(x - 2) + str(y + 1))
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x + 2) + str(y + 1))
+        координати.append(str(x + 3) + str(y + 1))
+
+    elif len(a) == 4 and b == 3:
+        координати.append(str(x + 2) + str(y - 1))
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x - 2) + str(y - 1))
+        координати.append(str(x - 3) + str(y - 1))
+
+        координати.append(str(x - 3) + str(y))
+        координати.append(str(x + 2) + str(y))
+
+        координати.append(str(x + 2) + str(y + 1))
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x - 2) + str(y + 1))
+        координати.append(str(x - 3) + str(y + 1))
+
+    elif len(a) == 4 and b == 4:
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x - 2) + str(y - 1))
+        координати.append(str(x - 3) + str(y - 1))
+        координати.append(str(x - 4) + str(y - 1))
+
+        координати.append(str(x + 1) + str(y))
+        координати.append(str(x - 4) + str(y))
+
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x) + str(y + 1))
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x - 2) + str(y + 1))
+        координати.append(str(x - 3) + str(y + 1))
+        координати.append(str(x - 4) + str(y + 1))
 
 while збиті_кораблі < 20:
 
@@ -87,12 +191,96 @@ while збиті_кораблі < 20:
     elif f == "попав":
         збиті_кораблі += 1
 
-        збиті_кораблі += shot_x(x, збиті_кораблі, 1)
 
-        збиті_кораблі += shot_x(x, збиті_кораблі, -1)
+        a = True
+        x1 = x
+        while a == True:
+            x1 += 1
+            if x1 < 11:
+                координати.append(str(x1) + str(y))
+                print(x1, " | ", y)
+                f = input("(промах, попав, вбив): ")
 
-        збиті_кораблі += shot_x(x, збиті_кораблі, 1)
+                if f == "промах":
+                    a = False
 
-        збиті_кораблі += shot_x(x, збиті_кораблі, -1)
+                elif f == "вбив":
+                    збиті_кораблі += 1
+                    пропуск = False
+                    a = False
+
+                elif f == "попав":
+                    збиті_кораблі += 1
+                    пропуск = False
+                    continue
+            else:
+                a = False
+
+        a = True
+        x2 = x
+        while a == True:
+            пропуск = False
+            x2 -= 1
+            if x2 > 0:
+                координати.append(str(x2) + str(y))
+                print(x2, " | ", y)
+                f = input("(промах, попав, вбив): ")
+
+                if f == "промах":
+                    a = False
+
+                elif f == "вбив":
+                    збиті_кораблі += 1
+                    пропуск = False
+                    a = False
+
+                elif f == "попав":
+                    збиті_кораблі += 1
+                    пропуск = False
+                    continue
+            else:
+                a = False
+
+        y1 = y
+        while пропуск == True:
+            y1 += 1
+            if y1 < 11:
+                координати.append(str(x) + str(y1))
+                print(x, " | ", y1)
+                f = input("(промах, попав, вбив): ")
+
+                if f == "промах":
+                    a = False
+
+                elif f == "вбив":
+                    збиті_кораблі += 1
+                    a = False
+
+                elif f == "попав":
+                    збиті_кораблі += 1
+                    continue
+            else:
+                a = False
+
+        y2 = y
+        while пропуск == True:
+            y2 -= 1
+            if y2 > 0:
+                координати.append(str(x) + str(y2))
+                print(x, " | ", y2)
+                f = input("(промах, попав, вбив): ")
+
+                if f == "промах":
+                    a = False
+
+                elif f == "вбив":
+                    збиті_кораблі += 1
+                    a = False
+
+                elif f == "попав":
+                    збиті_кораблі += 1
+                    continue
+            else:
+                a = False
 
 print("Кінець гри")
