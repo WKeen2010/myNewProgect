@@ -2,6 +2,169 @@ from random import *
 
 координати = []
 збиті_кораблі = 0
+check = []
+
+def checker_x(a, b):
+    координати_x = []
+    if len(a) == 1:
+        координати.append(str(x-1) + str(y-1))
+        координати.append(str(x) + str(y-1))
+        координати.append(str(x+1) + str(y-1))
+
+        координати.append(str(x-1) + str(y))
+        координати.append(str(x+1) + str(y))
+
+        координати.append(str(x-1) + str(y+1))
+        координати.append(str(x) + str(y+1))
+        координати.append(str(x+1) + str(y+1))
+
+    elif len(a) == 2 and b == 1:
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x + 2) + str(y - 1))
+
+        координати.append(str(x - 1) + str(y))
+        координати.append(str(x + 2) + str(y))
+
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x) + str(y + 1))
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x + 2) + str(y + 1))
+
+    elif len(a) == 2 and b == 2:
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x - 2) + str(y - 1))
+
+        координати.append(str(x + 1) + str(y))
+        координати.append(str(x - 2) + str(y))
+
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x) + str(y + 1))
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x - 2) + str(y + 1))
+
+    elif len(a) == 3 and b == 1:
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x + 2) + str(y - 1))
+        координати.append(str(x + 3) + str(y - 1))
+
+        координати.append(str(x - 1) + str(y))
+        координати.append(str(x + 3) + str(y))
+
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x) + str(y + 1))
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x + 2) + str(y + 1))
+        координати.append(str(x + 3) + str(y + 1))
+
+    elif len(a) == 3 and b == 2:
+        координати.append(str(x - 2) + str(y - 1))
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x + 2) + str(y - 1))
+
+        координати.append(str(x - 2) + str(y))
+        координати.append(str(x + 2) + str(y))
+
+        координати.append(str(x - 2) + str(y + 1))
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x) + str(y + 1))
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x + 2) + str(y + 1))
+
+    elif len(a) == 3 and b == 3:
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x - 2) + str(y - 1))
+        координати.append(str(x - 3) + str(y - 1))
+
+        координати.append(str(x + 1) + str(y))
+        координати.append(str(x - 3) + str(y))
+
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x) + str(y + 1))
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x - 2) + str(y + 1))
+        координати.append(str(x - 3) + str(y + 1))
+
+    elif len(a) == 4 and b == 1:
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x + 2) + str(y - 1))
+        координати.append(str(x + 3) + str(y - 1))
+        координати.append(str(x + 4) + str(y - 1))
+
+        координати.append(str(x - 1) + str(y))
+        координати.append(str(x + 4) + str(y))
+
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x) + str(y + 1))
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x + 2) + str(y + 1))
+        координати.append(str(x + 3) + str(y + 1))
+        координати.append(str(x + 4) + str(y + 1))
+
+    elif len(a) == 4 and b == 2:
+        координати.append(str(x - 2) + str(y - 1))
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x + 2) + str(y - 1))
+        координати.append(str(x + 3) + str(y - 1))
+
+        координати.append(str(x - 2) + str(y))
+        координати.append(str(x + 3) + str(y))
+
+        координати.append(str(x - 2) + str(y + 1))
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x + 2) + str(y + 1))
+        координати.append(str(x + 3) + str(y + 1))
+
+    elif len(a) == 4 and b == 3:
+        координати.append(str(x + 2) + str(y - 1))
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x - 2) + str(y - 1))
+        координати.append(str(x - 3) + str(y - 1))
+
+        координати.append(str(x - 3) + str(y))
+        координати.append(str(x + 2) + str(y))
+
+        координати.append(str(x + 2) + str(y + 1))
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x - 2) + str(y + 1))
+        координати.append(str(x - 3) + str(y + 1))
+
+    elif len(a) == 4 and b == 4:
+        координати.append(str(x + 1) + str(y - 1))
+        координати.append(str(x) + str(y - 1))
+        координати.append(str(x - 1) + str(y - 1))
+        координати.append(str(x - 2) + str(y - 1))
+        координати.append(str(x - 3) + str(y - 1))
+        координати.append(str(x - 4) + str(y - 1))
+
+        координати.append(str(x + 1) + str(y))
+        координати.append(str(x - 4) + str(y))
+
+        координати.append(str(x + 1) + str(y + 1))
+        координати.append(str(x) + str(y + 1))
+        координати.append(str(x - 1) + str(y + 1))
+        координати.append(str(x - 2) + str(y + 1))
+        координати.append(str(x - 3) + str(y + 1))
+        координати.append(str(x - 4) + str(y + 1))
 
 while збиті_кораблі < 20:
 
