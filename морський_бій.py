@@ -2,6 +2,8 @@ from random import *
 
 координати = []
 збиті_кораблі = 0
+пропуск1 = True
+пропуск2 = True
 
 while збиті_кораблі < 20:
 
@@ -43,20 +45,20 @@ while збиті_кораблі < 20:
 
                 elif f == "вбив":
                     збиті_кораблі += 1
-                    пропуск = False
+                    пропуск1 = False
+                    пропуск2 = False
                     a = False
 
                 elif f == "попав":
                     збиті_кораблі += 1
-                    пропуск = False
+                    пропуск1 = False
+                    пропуск2 = False
                     continue
             else:
                 a = False
 
-        a = True
         x2 = x
         while a == True:
-            пропуск = False
             x2 -= 1
             if x2 > 0:
                 координати.append(str(x2) + str(y))
@@ -68,18 +70,20 @@ while збиті_кораблі < 20:
 
                 elif f == "вбив":
                     збиті_кораблі += 1
-                    пропуск = False
+                    пропуск1 = False
+                    пропуск2 = False
                     a = False
 
                 elif f == "попав":
                     збиті_кораблі += 1
-                    пропуск = False
+                    пропуск1 = False
+                    пропуск2 = False
                     continue
             else:
                 a = False
 
         y1 = y
-        while пропуск == True:
+        while пропуск1 == True:
             y1 += 1
             if y1 < 11:
                 координати.append(str(x) + str(y1))
@@ -87,20 +91,20 @@ while збиті_кораблі < 20:
                 f = input("(промах, попав, вбив): ")
 
                 if f == "промах":
-                    a = False
+                    пропуск1 = False
 
                 elif f == "вбив":
                     збиті_кораблі += 1
-                    a = False
+                    пропуск1 = False
 
                 elif f == "попав":
                     збиті_кораблі += 1
                     continue
             else:
-                a = False
+                пропуск1 = False
 
         y2 = y
-        while пропуск == True:
+        while пропуск2 == True:
             y2 -= 1
             if y2 > 0:
                 координати.append(str(x) + str(y2))
@@ -108,16 +112,16 @@ while збиті_кораблі < 20:
                 f = input("(промах, попав, вбив): ")
 
                 if f == "промах":
-                    a = False
+                    пропуск2 = False
 
                 elif f == "вбив":
                     збиті_кораблі += 1
-                    a = False
+                    пропуск2 = False
 
                 elif f == "попав":
                     збиті_кораблі += 1
                     continue
             else:
-                a = False
+                пропуск2 = False
 
 print("Кінець гри")
