@@ -1,24 +1,222 @@
 from random import *
 
-координати = []
-збиті_кораблі = 0
-палуби = 0
+обстріляні_координати = []
+знищені_палуби = 0
+кількість_палуб = 0
 
-while збиті_кораблі < 20:
+def check(a, b, x, y):
+    if a == "x1":
+        if b == 2:
+            обстріляні_координати.append(str(x - 1) + str(y - 1))
+            обстріляні_координати.append(str(x) + str(y - 1))
+            обстріляні_координати.append(str(x + 1) + str(y - 1))
+            обстріляні_координати.append(str(x + 2) + str(y - 1))
 
-    пропуск1 = True
-    пропуск2 = True
-    пропуск3 = True
+            обстріляні_координати.append(str(x - 1) + str(y))
+            обстріляні_координати.append(str(x + 2) + str(y))
+
+            обстріляні_координати.append(str(x - 1) + str(y + 1))
+            обстріляні_координати.append(str(x) + str(y + 1))
+            обстріляні_координати.append(str(x + 1) + str(y + 1))
+            обстріляні_координати.append(str(x + 2) + str(y + 1))
+
+        elif b == 3:
+            обстріляні_координати.append(str(x - 1) + str(y - 1))
+            обстріляні_координати.append(str(x) + str(y - 1))
+            обстріляні_координати.append(str(x + 1) + str(y - 1))
+            обстріляні_координати.append(str(x + 2) + str(y - 1))
+            обстріляні_координати.append(str(x + 3) + str(y - 1))
+
+            обстріляні_координати.append(str(x - 1) + str(y))
+            обстріляні_координати.append(str(x + 3) + str(y))
+
+            обстріляні_координати.append(str(x - 1) + str(y + 1))
+            обстріляні_координати.append(str(x) + str(y + 1))
+            обстріляні_координати.append(str(x + 1) + str(y + 1))
+            обстріляні_координати.append(str(x + 2) + str(y + 1))
+            обстріляні_координати.append(str(x + 3) + str(y + 1))
+
+        elif b == 4:
+            обстріляні_координати.append(str(x - 1) + str(y - 1))
+            обстріляні_координати.append(str(x) + str(y - 1))
+            обстріляні_координати.append(str(x + 1) + str(y - 1))
+            обстріляні_координати.append(str(x + 2) + str(y - 1))
+            обстріляні_координати.append(str(x + 3) + str(y - 1))
+            обстріляні_координати.append(str(x + 4) + str(y - 1))
+
+            обстріляні_координати.append(str(x - 1) + str(y))
+            обстріляні_координати.append(str(x + 4) + str(y))
+
+            обстріляні_координати.append(str(x - 1) + str(y + 1))
+            обстріляні_координати.append(str(x) + str(y + 1))
+            обстріляні_координати.append(str(x + 1) + str(y + 1))
+            обстріляні_координати.append(str(x + 2) + str(y + 1))
+            обстріляні_координати.append(str(x + 3) + str(y + 1))
+            обстріляні_координати.append(str(x + 4) + str(y + 1))
+
+    if a == "x2":
+        if b == 2:
+            обстріляні_координати.append(str(x + 1) + str(y - 1))
+            обстріляні_координати.append(str(x) + str(y - 1))
+            обстріляні_координати.append(str(x - 1) + str(y - 1))
+            обстріляні_координати.append(str(x - 2) + str(y - 1))
+
+            обстріляні_координати.append(str(x + 1) + str(y))
+            обстріляні_координати.append(str(x - 2) + str(y))
+
+            обстріляні_координати.append(str(x + 1) + str(y + 1))
+            обстріляні_координати.append(str(x) + str(y + 1))
+            обстріляні_координати.append(str(x - 1) + str(y + 1))
+            обстріляні_координати.append(str(x - 2) + str(y + 1))
+
+        elif b == 3:
+            обстріляні_координати.append(str(x + 1) + str(y - 1))
+            обстріляні_координати.append(str(x) + str(y - 1))
+            обстріляні_координати.append(str(x - 1) + str(y - 1))
+            обстріляні_координати.append(str(x - 2) + str(y - 1))
+            обстріляні_координати.append(str(x - 3) + str(y - 1))
+
+            обстріляні_координати.append(str(x + 1) + str(y))
+            обстріляні_координати.append(str(x - 3) + str(y))
+
+            обстріляні_координати.append(str(x + 1) + str(y + 1))
+            обстріляні_координати.append(str(x) + str(y + 1))
+            обстріляні_координати.append(str(x - 1) + str(y + 1))
+            обстріляні_координати.append(str(x - 2) + str(y + 1))
+            обстріляні_координати.append(str(x - 3) + str(y + 1))
+
+        elif b == 4:
+            обстріляні_координати.append(str(x + 1) + str(y - 1))
+            обстріляні_координати.append(str(x) + str(y - 1))
+            обстріляні_координати.append(str(x - 1) + str(y - 1))
+            обстріляні_координати.append(str(x - 2) + str(y - 1))
+            обстріляні_координати.append(str(x - 3) + str(y - 1))
+            обстріляні_координати.append(str(x - 4) + str(y - 1))
+
+            обстріляні_координати.append(str(x + 1) + str(y))
+            обстріляні_координати.append(str(x - 4) + str(y))
+
+            обстріляні_координати.append(str(x + 1) + str(y + 1))
+            обстріляні_координати.append(str(x) + str(y + 1))
+            обстріляні_координати.append(str(x - 1) + str(y + 1))
+            обстріляні_координати.append(str(x - 2) + str(y + 1))
+            обстріляні_координати.append(str(x - 3) + str(y + 1))
+            обстріляні_координати.append(str(x - 4) + str(y + 1))
+
+    if a == "y1":
+        if b == 2:
+            обстріляні_координати.append(str(x - 1) + str(y - 1))
+            обстріляні_координати.append(str(x - 1) + str(y))
+            обстріляні_координати.append(str(x - 1) + str(y + 1))
+            обстріляні_координати.append(str(x - 1) + str(y + 2))
+
+            обстріляні_координати.append(str(x) + str(y - 1))
+            обстріляні_координати.append(str(x) + str(y + 2))
+
+            обстріляні_координати.append(str(x + 1) + str(y - 1))
+            обстріляні_координати.append(str(x + 1) + str(y))
+            обстріляні_координати.append(str(x + 1) + str(y + 1))
+            обстріляні_координати.append(str(x + 1) + str(y + 2))
+
+        elif b == 3:
+            обстріляні_координати.append(str(x - 1) + str(y - 1))
+            обстріляні_координати.append(str(x - 1) + str(y))
+            обстріляні_координати.append(str(x - 1) + str(y + 1))
+            обстріляні_координати.append(str(x - 1) + str(y + 2))
+            обстріляні_координати.append(str(x - 1) + str(y + 3))
+
+            обстріляні_координати.append(str(x) + str(y - 1))
+            обстріляні_координати.append(str(x) + str(y + 3))
+
+            обстріляні_координати.append(str(x + 1) + str(y - 1))
+            обстріляні_координати.append(str(x + 1) + str(y))
+            обстріляні_координати.append(str(x + 1) + str(y + 1))
+            обстріляні_координати.append(str(x + 1) + str(y + 2))
+            обстріляні_координати.append(str(x + 1) + str(y + 3))
+
+        elif b == 4:
+            обстріляні_координати.append(str(x - 1) + str(y - 1))
+            обстріляні_координати.append(str(x - 1) + str(y))
+            обстріляні_координати.append(str(x - 1) + str(y + 1))
+            обстріляні_координати.append(str(x - 1) + str(y + 2))
+            обстріляні_координати.append(str(x - 1) + str(y + 3))
+            обстріляні_координати.append(str(x - 1) + str(y + 4))
+
+            обстріляні_координати.append(str(x) + str(y - 1))
+            обстріляні_координати.append(str(x) + str(y + 4))
+
+            обстріляні_координати.append(str(x + 1) + str(y - 1))
+            обстріляні_координати.append(str(x + 1) + str(y))
+            обстріляні_координати.append(str(x + 1) + str(y + 1))
+            обстріляні_координати.append(str(x + 1) + str(y + 2))
+            обстріляні_координати.append(str(x + 1) + str(y + 3))
+            обстріляні_координати.append(str(x + 1) + str(y + 4))
+
+    if a == "y2":
+        if b == 2:
+            обстріляні_координати.append(str(x - 1) + str(y + 1))
+            обстріляні_координати.append(str(x - 1) + str(y))
+            обстріляні_координати.append(str(x - 1) + str(y - 1))
+            обстріляні_координати.append(str(x - 1) + str(y - 2))
+
+            обстріляні_координати.append(str(x) + str(y + 1))
+            обстріляні_координати.append(str(x) + str(y - 2))
+
+            обстріляні_координати.append(str(x + 1) + str(y + 1))
+            обстріляні_координати.append(str(x + 1) + str(y))
+            обстріляні_координати.append(str(x + 1) + str(y - 1))
+            обстріляні_координати.append(str(x + 1) + str(y - 2))
+
+        elif b == 3:
+            обстріляні_координати.append(str(x - 1) + str(y + 1))
+            обстріляні_координати.append(str(x - 1) + str(y))
+            обстріляні_координати.append(str(x - 1) + str(y - 1))
+            обстріляні_координати.append(str(x - 1) + str(y - 2))
+            обстріляні_координати.append(str(x - 1) + str(y - 3))
+
+            обстріляні_координати.append(str(x) + str(y + 1))
+            обстріляні_координати.append(str(x) + str(y - 3))
+
+            обстріляні_координати.append(str(x + 1) + str(y + 1))
+            обстріляні_координати.append(str(x + 1) + str(y))
+            обстріляні_координати.append(str(x + 1) + str(y - 1))
+            обстріляні_координати.append(str(x + 1) + str(y - 2))
+            обстріляні_координати.append(str(x + 1) + str(y - 3))
+
+        elif b == 4:
+            обстріляні_координати.append(str(x - 1) + str(y + 1))
+            обстріляні_координати.append(str(x - 1) + str(y))
+            обстріляні_координати.append(str(x - 1) + str(y - 1))
+            обстріляні_координати.append(str(x - 1) + str(y - 2))
+            обстріляні_координати.append(str(x - 1) + str(y - 3))
+            обстріляні_координати.append(str(x - 1) + str(y - 4))
+
+            обстріляні_координати.append(str(x) + str(y + 1))
+            обстріляні_координати.append(str(x) + str(y - 4))
+
+            обстріляні_координати.append(str(x + 1) + str(y + 1))
+            обстріляні_координати.append(str(x + 1) + str(y))
+            обстріляні_координати.append(str(x + 1) + str(y - 1))
+            обстріляні_координати.append(str(x + 1) + str(y - 2))
+            обстріляні_координати.append(str(x + 1) + str(y - 3))
+            обстріляні_координати.append(str(x + 1) + str(y - 4))
+
+while знищені_палуби < 20:
+
+    дозвіл_на_биття_по_y1 = True
+    дозвіл_на_биття_по_y2 = True
+    дозвіл_на_биття_по_x2 = True
+    дозвіл_на_биття_по_x1 = True
     x = randint(1,10)
     y = randint(1, 10)
-    i = координати.count(str(x) + str(y))
+    i = обстріляні_координати.count(str(x) + str(y))
 
     while i != 0:
         x = randint(1, 10)
         y = randint(1, 10)
-        i = координати.count(str(x) + str(y))
+        i = обстріляні_координати.count(str(x) + str(y))
 
-    координати.append(str(x) + str(y))
+    обстріляні_координати.append(str(x) + str(y))
     print(x, " | ", y)
 
     f = input("(промах, попав, вбив): ")
@@ -26,311 +224,132 @@ while збиті_кораблі < 20:
         continue
 
     elif f == "вбив":
-        збиті_кораблі += 1
-        координати.append(str(x) + str(y))
-        координати.append(str(x - 1) + str(y - 1))
-        координати.append(str(x) + str(y - 1))
-        координати.append(str(x + 1) + str(y - 1))
-        координати.append(str(x - 1) + str(y))
-        координати.append(str(x + 1) + str(y))
-        координати.append(str(x - 1) + str(y + 1))
-        координати.append(str(x) + str(y + 1))
-        координати.append(str(x + 1) + str(y + 1))
+        знищені_палуби += 1
+        обстріляні_координати.append(str(x) + str(y))
+        обстріляні_координати.append(str(x - 1) + str(y - 1))
+        обстріляні_координати.append(str(x) + str(y - 1))
+        обстріляні_координати.append(str(x + 1) + str(y - 1))
+        обстріляні_координати.append(str(x - 1) + str(y))
+        обстріляні_координати.append(str(x + 1) + str(y))
+        обстріляні_координати.append(str(x - 1) + str(y + 1))
+        обстріляні_координати.append(str(x) + str(y + 1))
+        обстріляні_координати.append(str(x + 1) + str(y + 1))
         continue
 
     elif f == "попав":
-        збиті_кораблі += 1
-        палуби += 1
+        знищені_палуби += 1
+        кількість_палуб += 1
 
 
-        a = True
         x1 = x
-        while a == True:
+        while дозвіл_на_биття_по_x1 == True:
             x1 += 1
-            i = координати.count(str(x1) + str(y))
+            i = обстріляні_координати.count(str(x1) + str(y))
             if x1 < 11 and i == 0:
-                координати.append(str(x1) + str(y))
+                обстріляні_координати.append(str(x1) + str(y))
                 print(x1, " | ", y)
                 f = input("(промах, попав, вбив): ")
 
                 if f == "промах":
-                    a = False
+                    дозвіл_на_биття_по_x1 = False
 
                 elif f == "вбив":
-                    збиті_кораблі += 1
-                    пропуск1 = False
-                    пропуск2 = False
-                    пропуск3 = False
-                    if палуби == 2:
-                        координати.append(str(x + 1) + str(y - 1))
-                        координати.append(str(x) + str(y - 1))
-                        координати.append(str(x - 1) + str(y - 1))
-                        координати.append(str(x - 2) + str(y - 1))
-
-                        координати.append(str(x + 1) + str(y))
-                        координати.append(str(x - 2) + str(y))
-
-                        координати.append(str(x + 1) + str(y + 1))
-                        координати.append(str(x) + str(y + 1))
-                        координати.append(str(x - 1) + str(y + 1))
-                        координати.append(str(x - 2) + str(y + 1))
-
-                    elif палуби == 3:
-                        координати.append(str(x + 1) + str(y - 1))
-                        координати.append(str(x) + str(y - 1))
-                        координати.append(str(x - 1) + str(y - 1))
-                        координати.append(str(x - 2) + str(y - 1))
-                        координати.append(str(x - 3) + str(y - 1))
-
-                        координати.append(str(x + 1) + str(y))
-                        координати.append(str(x - 3) + str(y))
-
-                        координати.append(str(x + 1) + str(y + 1))
-                        координати.append(str(x) + str(y + 1))
-                        координати.append(str(x - 1) + str(y + 1))
-                        координати.append(str(x - 2) + str(y + 1))
-                        координати.append(str(x - 3) + str(y + 1))
-
-                    elif палуби == 4:
-                        координати.append(str(x + 1) + str(y - 1))
-                        координати.append(str(x) + str(y - 1))
-                        координати.append(str(x - 1) + str(y - 1))
-                        координати.append(str(x - 2) + str(y - 1))
-                        координати.append(str(x - 3) + str(y - 1))
-                        координати.append(str(x - 4) + str(y - 1))
-
-                        координати.append(str(x + 1) + str(y))
-                        координати.append(str(x - 4) + str(y))
-
-                        координати.append(str(x + 1) + str(y + 1))
-                        координати.append(str(x) + str(y + 1))
-                        координати.append(str(x - 1) + str(y + 1))
-                        координати.append(str(x - 2) + str(y + 1))
-                        координати.append(str(x - 3) + str(y + 1))
-                        координати.append(str(x - 4) + str(y + 1))
+                    знищені_палуби += 1
+                    дозвіл_на_биття_по_y1 = False
+                    дозвіл_на_биття_по_y2 = False
+                    дозвіл_на_биття_по_x2 = False
+                    дозвіл_на_биття_по_x1 = False
+                    check("x1", кількість_палуб, x1, y)
 
                 elif f == "попав":
-                    збиті_кораблі += 1
-                    пропуск1 = False
-                    пропуск2 = False
-                    палуби += 1
+                    знищені_палуби += 1
+                    дозвіл_на_биття_по_y1 = False
+                    дозвіл_на_биття_по_y2 = False
+                    кількість_палуб += 1
                     continue
             else:
-                a = False
+                дозвіл_на_биття_по_x1 = False
 
         x2 = x
-        while пропуск3 == True:
+        while дозвіл_на_биття_по_x2 == True:
             x2 -= 1
-            i = координати.count(str(x2) + str(y))
+            i = обстріляні_координати.count(str(x2) + str(y))
             if x2 > 0 and i == 0:
-                координати.append(str(x2) + str(y))
+                обстріляні_координати.append(str(x2) + str(y))
                 print(x2, " | ", y)
                 f = input("(промах, попав, вбив): ")
 
                 if f == "промах":
-                    пропуск3 = False
+                    дозвіл_на_биття_по_x2 = False
 
                 elif f == "вбив":
-                    збиті_кораблі += 1
-                    пропуск1 = False
-                    пропуск2 = False
-                    пропуск3 = False
-                    if палуби == 2:
-                        координати.append(str(x - 1) + str(y - 1))
-                        координати.append(str(x) + str(y - 1))
-                        координати.append(str(x + 1) + str(y - 1))
-                        координати.append(str(x + 2) + str(y - 1))
-
-                        координати.append(str(x - 1) + str(y))
-                        координати.append(str(x + 2) + str(y))
-
-                        координати.append(str(x - 1) + str(y + 1))
-                        координати.append(str(x) + str(y + 1))
-                        координати.append(str(x + 1) + str(y + 1))
-                        координати.append(str(x + 2) + str(y + 1))
-
-                    elif палуби == 3:
-                        координати.append(str(x - 1) + str(y - 1))
-                        координати.append(str(x) + str(y - 1))
-                        координати.append(str(x + 1) + str(y - 1))
-                        координати.append(str(x + 2) + str(y - 1))
-                        координати.append(str(x + 3) + str(y - 1))
-
-                        координати.append(str(x - 1) + str(y))
-                        координати.append(str(x + 3) + str(y))
-
-                        координати.append(str(x - 1) + str(y + 1))
-                        координати.append(str(x) + str(y + 1))
-                        координати.append(str(x + 1) + str(y + 1))
-                        координати.append(str(x + 2) + str(y + 1))
-                        координати.append(str(x + 3) + str(y + 1))
-
-                    elif палуби == 4:
-                        координати.append(str(x - 1) + str(y - 1))
-                        координати.append(str(x) + str(y - 1))
-                        координати.append(str(x + 1) + str(y - 1))
-                        координати.append(str(x + 2) + str(y - 1))
-                        координати.append(str(x + 3) + str(y - 1))
-                        координати.append(str(x + 4) + str(y - 1))
-
-                        координати.append(str(x - 1) + str(y))
-                        координати.append(str(x + 4) + str(y))
-
-                        координати.append(str(x - 1) + str(y + 1))
-                        координати.append(str(x) + str(y + 1))
-                        координати.append(str(x + 1) + str(y + 1))
-                        координати.append(str(x + 2) + str(y + 1))
-                        координати.append(str(x + 3) + str(y + 1))
-                        координати.append(str(x + 4) + str(y + 1))
+                    знищені_палуби += 1
+                    дозвіл_на_биття_по_y1 = False
+                    дозвіл_на_биття_по_y2 = False
+                    дозвіл_на_биття_по_x2 = False
+                    check("x2", кількість_палуб, x2, y)
 
                 elif f == "попав":
-                    збиті_кораблі += 1
-                    палуби += 1
-                    пропуск1 = False
-                    пропуск2 = False
+                    знищені_палуби += 1
+                    кількість_палуб += 1
+                    дозвіл_на_биття_по_y1 = False
+                    дозвіл_на_биття_по_y2 = False
                     continue
             else:
-                пропуск3 = False
+                дозвіл_на_биття_по_x2 = False
 
         y1 = y
-        while пропуск1 == True:
+        while дозвіл_на_биття_по_y1 == True:
             y1 += 1
-            i = координати.count(str(x) + str(y1))
+            i = обстріляні_координати.count(str(x) + str(y1))
             if y1 < 11 and i == 0:
-                координати.append(str(x) + str(y1))
+                обстріляні_координати.append(str(x) + str(y1))
                 print(x, " | ", y1)
                 f = input("(промах, попав, вбив): ")
 
                 if f == "промах":
-                    пропуск1 = False
+                    дозвіл_на_биття_по_y1 = False
 
                 elif f == "вбив":
-                    збиті_кораблі += 1
-                    пропуск1 = False
-                    if палуби == 2:
-                        координати.append(str(x - 1) + str(y + 1))
-                        координати.append(str(x - 1) + str(y))
-                        координати.append(str(x - 1) + str(y - 1))
-                        координати.append(str(x - 1) + str(y - 2))
-
-                        координати.append(str(x) + str(y + 1))
-                        координати.append(str(x) + str(y - 2))
-
-                        координати.append(str(x + 1) + str(y + 1))
-                        координати.append(str(x + 1) + str(y))
-                        координати.append(str(x + 1) + str(y - 1))
-                        координати.append(str(x + 1) + str(y - 2))
-
-                    elif палуби == 3:
-                        координати.append(str(x - 1) + str(y + 1))
-                        координати.append(str(x - 1) + str(y))
-                        координати.append(str(x - 1) + str(y - 1))
-                        координати.append(str(x - 1) + str(y - 2))
-                        координати.append(str(x - 1) + str(y - 3))
-
-                        координати.append(str(x) + str(y + 1))
-                        координати.append(str(x) + str(y - 3))
-
-                        координати.append(str(x + 1) + str(y + 1))
-                        координати.append(str(x + 1) + str(y))
-                        координати.append(str(x + 1) + str(y - 1))
-                        координати.append(str(x + 1) + str(y - 2))
-                        координати.append(str(x + 1) + str(y - 3))
-
-                    elif палуби == 4:
-                        координати.append(str(x - 1) + str(y + 1))
-                        координати.append(str(x - 1) + str(y))
-                        координати.append(str(x - 1) + str(y - 1))
-                        координати.append(str(x - 1) + str(y - 2))
-                        координати.append(str(x - 1) + str(y - 3))
-                        координати.append(str(x - 1) + str(y - 4))
-
-                        координати.append(str(x) + str(y + 1))
-                        координати.append(str(x) + str(y - 4))
-
-                        координати.append(str(x + 1) + str(y + 1))
-                        координати.append(str(x + 1) + str(y))
-                        координати.append(str(x + 1) + str(y - 1))
-                        координати.append(str(x + 1) + str(y - 2))
-                        координати.append(str(x + 1) + str(y - 3))
-                        координати.append(str(x + 1) + str(y - 4))
+                    знищені_палуби += 1
+                    дозвіл_на_биття_по_y1 = False
+                    дозвіл_на_биття_по_y2 = False
+                    check("y1", кількість_палуб, x, y1)
 
             elif f == "попав":
-                    збиті_кораблі += 1
-                    палуби += 1
+                    знищені_палуби += 1
+                    кількість_палуб += 1
                     continue
             else:
-                пропуск1 = False
+                дозвіл_на_биття_по_y1 = False
 
         y2 = y
-        while пропуск2 == True:
+        while дозвіл_на_биття_по_y2 == True:
             y2 -= 1
-            i = координати.count(str(x) + str(y2))
+            i = обстріляні_координати.count(str(x) + str(y2))
             if y2 > 0 and i == 0:
-                координати.append(str(x) + str(y2))
+                обстріляні_координати.append(str(x) + str(y2))
                 print(x, " | ", y2)
                 f = input("(промах, попав, вбив): ")
 
                 if f == "промах":
-                    пропуск2 = False
+                    дозвіл_на_биття_по_y2 = False
 
                 elif f == "вбив":
-                    збиті_кораблі += 1
-                    пропуск2 = False
-                    if палуби == 2:
-                        координати.append(str(x - 1) + str(y - 1))
-                        координати.append(str(x - 1) + str(y))
-                        координати.append(str(x - 1) + str(y + 1))
-                        координати.append(str(x - 1) + str(y + 2))
-
-                        координати.append(str(x) + str(y - 1))
-                        координати.append(str(x) + str(y + 2))
-
-                        координати.append(str(x + 1) + str(y - 1))
-                        координати.append(str(x + 1) + str(y))
-                        координати.append(str(x + 1) + str(y + 1))
-                        координати.append(str(x + 1) + str(y + 2))
-
-                    elif палуби == 3:
-                        координати.append(str(x - 1) + str(y - 1))
-                        координати.append(str(x - 1) + str(y))
-                        координати.append(str(x - 1) + str(y + 1))
-                        координати.append(str(x - 1) + str(y + 2))
-                        координати.append(str(x - 1) + str(y + 3))
-
-                        координати.append(str(x) + str(y - 1))
-                        координати.append(str(x) + str(y + 3))
-
-                        координати.append(str(x + 1) + str(y - 1))
-                        координати.append(str(x + 1) + str(y))
-                        координати.append(str(x + 1) + str(y + 1))
-                        координати.append(str(x + 1) + str(y + 2))
-                        координати.append(str(x + 1) + str(y + 3))
-
-                    elif палуби == 4:
-                        координати.append(str(x - 1) + str(y - 1))
-                        координати.append(str(x - 1) + str(y))
-                        координати.append(str(x - 1) + str(y + 1))
-                        координати.append(str(x - 1) + str(y + 2))
-                        координати.append(str(x - 1) + str(y + 3))
-                        координати.append(str(x - 1) + str(y + 4))
-
-                        координати.append(str(x) + str(y + 1))
-                        координати.append(str(x) + str(y - 4))
-
-                        координати.append(str(x + 1) + str(y - 1))
-                        координати.append(str(x + 1) + str(y))
-                        координати.append(str(x + 1) + str(y + 1))
-                        координати.append(str(x + 1) + str(y + 2))
-                        координати.append(str(x + 1) + str(y + 3))
-                        координати.append(str(x + 1) + str(y + 4))
+                    знищені_палуби += 1
+                    дозвіл_на_биття_по_y2 = False
+                    check("y2", кількість_палуб, x, y2)
 
                 elif f == "попав":
-                    збиті_кораблі += 1
-                    палуби += 1
+                    знищені_палуби += 1
+                    кількість_палуб += 1
                     continue
             else:
-                пропуск2 = False
-    палуби = 0
+                дозвіл_на_биття_по_y2 = False
+
+    else:
+        print("Ти грав неправильно!")
+        break
+    кількість_палуб = 0
 
 print("Кінець гри")
