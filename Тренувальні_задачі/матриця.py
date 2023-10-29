@@ -100,4 +100,4 @@ print('')
 print(a)
 
 for i in range(999):
-    left(1)
+    left(2)
